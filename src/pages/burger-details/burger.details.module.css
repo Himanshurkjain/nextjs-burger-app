@@ -1,0 +1,47 @@
+.container {
+  padding: 1%;
+}
+
+.dark {
+  background-color: rgb(21, 20, 20);
+  color: white;
+}
+
+.light {
+  background-color: rgb(243, 235, 235);
+  color: black;
+}
+
+.burger-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-row {
+    padding-bottom: 8px;
+}
+
+.back-btn {
+  margin-left: "1%";
+  margin-top: "1%";
+  font-size: "20px";
+  text-decoration: 'none';
+  display: "flex";
+  align-items: "center";
+}
+
+
+.button-link {
+    display: inline-block;
+    padding: 100px 20px;
+    background-color:darkgray;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10%;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .button-link:hover {
+    background-color: darkgray;
+  }
