@@ -4,6 +4,7 @@ import Link from "next/link";
 import currencyConvertor from "@/lib/utility/helper";
 import { useTheme } from '@/store/ThemeContext';
 
+
 export type BurgerProps = {
     id: string;
     name: string;
@@ -13,7 +14,7 @@ export type BurgerProps = {
     calorie: number;
     slug: string;
     _id?: string;
-  }
+}
 
 export default function Burger({ id ,name, price, description, image }: BurgerProps) {
   const { theme } = useTheme();
@@ -30,6 +31,6 @@ export default function Burger({ id ,name, price, description, image }: BurgerPr
        <h4>{name}</h4>
        <div>{currencyConvertor(price)}</div>
        <div>{description}</div>
-   </div>
+      </div>
    </Link>
 }

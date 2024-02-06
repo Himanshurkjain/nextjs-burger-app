@@ -1,7 +1,21 @@
 // components/CartIcon.js
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import styles from "./carticon.module.css";
+import styled from 'styled-components';
+
+const StyledCartIcon = styled.div`
+  display: flex;
+`;
+
+const StyledCartItemCount = styled.span`
+  background-color: orange;
+  color: white;
+  border-radius: 50%;
+  padding: 8px 6px;
+  font-size: 16px;
+  margin-right: 5px;
+  margin-left: 2px;
+`;
 
 type CartIconProps = {
     itemCount: number;
@@ -9,10 +23,10 @@ type CartIconProps = {
 
 const CartIcon = ({ itemCount }: CartIconProps) => {
   return (
-    <div style={{ display: "flex"}}>
+    <StyledCartIcon>
       <FaShoppingCart size={25} color='white' />
-      <span className={styles["cart-item-count"]}>{itemCount}</span>
-    </div>
+      <StyledCartItemCount>{itemCount}</StyledCartItemCount>
+    </StyledCartIcon>
   );
 };
 
