@@ -1,7 +1,7 @@
 import styles from "./burger.module.css";
 import Image from 'next/image';
 import Link from "next/link";
-import currencyConvertor from "@/pages/utility/helper";
+import currencyConvertor from "@/lib/utility/helper";
 import { useTheme } from '@/store/ThemeContext';
 
 export type BurgerProps = {

@@ -3,7 +3,7 @@ import CartContext from "@/store/cart-context"
 import { useContext } from "react";
 import { BurgerProps } from "@/components/burger/burger";
 import { MdDeleteForever } from "react-icons/md";
-import currencyConvertor, {getTotalAmount} from "../utility/helper";
+import currencyConvertor, {getTotalAmount} from "../../lib/utility/helper";
 import { useTheme } from '@/store/ThemeContext';
 
 export type CartItem = {

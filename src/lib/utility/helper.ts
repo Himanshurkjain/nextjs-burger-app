@@ -1,5 +1,5 @@
 import { BurgerProps } from "@/components/burger/burger";
-import { CartItem } from "../cart";
+import { CartItem } from "../../pages/cart";
 
 enum CURRENCY  {
     DOLLAR = '$'

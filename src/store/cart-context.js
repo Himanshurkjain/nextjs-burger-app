@@ -22,7 +22,7 @@ export function CartContextProvider({children}) {
 
     function removeItems(item) {
         setCartItems(cartItems.filter(cartItem => cartItem.id !== item.id));
-        setItemCount(prev => prev - 1)
+        setItemCount(prev => prev - item.quantity)
     }
 
     return (

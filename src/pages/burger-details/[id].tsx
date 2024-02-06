@@ -6,7 +6,7 @@ import ButtonLink from "@/components/button-link/buttonLink";
 import { useContext } from "react";
 import CartContext from "@/store/cart-context";
 import { useRouter } from 'next/router';
-import currencyConvertor from "../utility/helper";
+import currencyConvertor from "../../lib/utility/helper";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useTheme } from '@/store/ThemeContext';
 import {  GetStaticPropsContext } from 'next';
