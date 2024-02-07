@@ -9,6 +9,9 @@ const nextConfig = {
     mongodb_password: 'Burger123',
     mongodb_clustername: 'cluster0',
     mongodb_database: 'McDonalds'
+  },
+  compiler: {
+    styledComponents: true,
   }
 };
 
