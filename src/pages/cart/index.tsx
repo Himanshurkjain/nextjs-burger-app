@@ -26,6 +26,8 @@ export default function Cart() {
                     marginRight: '10px'
                 }}>{currencyConvertor(item.price, item.quantity)}</div>
                 <MdDeleteForever size={25} color="red" onClick={() => cartCtx.removeItems(item)}/>
+                <button onClick={() => {cartCtx.addItems(item, true)}}>Add Item</button>
+                <button onClick={() => {cartCtx.removeItems(item, true)}}>Remove Item</button>
             </div>
         </div>)}</div>
         <div className={styles.total}>

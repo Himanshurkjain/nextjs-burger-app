@@ -19,15 +19,23 @@ export type HomeProps = {
 export default function Home(props: HomeProps) {
   const { theme } = useTheme();
   const { products } = props;
+  const [val ,setVal] = useState("");
+  const [burgers, setBurgers] = useState(products);
 
+  useEffect(() => {
+    // can also add deboucing
+    setBurgers(products.filter(burger => {
+      return burger.name.toLowerCase().includes(val.toLocaleLowerCase()); 
+    }));
+  }, [val]);
 
   return (
     <>
      <DocumentHead title="Burger App Home Page" name="description" content="List all the burgers which can be ordered"></DocumentHead>
       <main>
-        
-        <div className={theme === 'dark'  ? styles.dark : styles.light}>
-          <div className={styles.container} >{products.length ? products.map(product => <Burger key={product.id} {...product}></Burger>) : <span>Burgers not found, please search again.</span>}</div>
+        <div className={theme === 'dark' && burgers.length ? styles.dark : styles.light}>
+           <input value={val} onChange={(event) => setVal(event.target.value)} placeholder="Search Burger"></input>
+          <div className={styles.container} >{burgers.length ? burgers.map(product => <Burger key={product.id} {...product}></Burger>) : <h2 style={{color: 'red'}}>Burgers not found, please search again.</h2>}</div>
         </div>
       </main>
     </>

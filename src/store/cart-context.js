@@ -20,9 +20,17 @@ export function CartContextProvider({children}) {
         setItemCount(prev => prev + 1)
     }
 
-    function removeItems(item) {
-        setCartItems(cartItems.filter(cartItem => cartItem.id !== item.id));
-        setItemCount(prev => prev - item.quantity);
+    function removeItems(item, quantity) {
+        if (quantity) {
+            const itemIndex = cartItems.findIndex(cartItem => cartItem.id === item.id);
+            const newItems = [...cartItems];
+            newItems[itemIndex].quantity = newItems[itemIndex].quantity -1;
+            setCartItems(newItems);
+            setItemCount(prev => prev - 1);
+        } else {
+            setCartItems(cartItems.filter(cartItem => cartItem.id !== item.id));
+            setItemCount(prev => prev - item.quantity);
+        }
     }
 
     return (
