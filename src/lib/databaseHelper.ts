@@ -37,3 +37,35 @@ export async function getBurgerDetails(id: string) {
         console.log('Connection to MongoDB closed');  
     }
 }
+
+
+export async function getUsers() {
+    const client = await connectoDatabase();
+    const collection = client.db().collection('users');
+    const cursor = collection.find();
+    const result = await cursor.toArray();
+    client.close();
+    return result.map((item) => {
+        return {
+          id: item['_id'].toString(),
+          email: item.email
+        }
+      })
+}
+
+
+export async function deleteUser(id: string) {
+    const client = await connectoDatabase();
+    const collection = client.db().collection('users');
+    try {
+        const result = await collection.deleteOne({ _id: new ObjectId(id?.toString())});
+        if (result.deletedCount === 1) {
+            console.log('Document deleted successfully');
+        } else {
+        console.log('Document not found or not deleted');
+        }
+    } finally {
+        await client.close();
+        console.log('Connection to MongoDB closed');  
+    }
+}

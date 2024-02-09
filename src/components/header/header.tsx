@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
-import { signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import ThemeToggle from "@/components/theme-toggle/ThemeToggle";
 import styles from "../../styles/Home.module.css";
 import CartIcon from "../cart-icon/CartIcon";
@@ -31,13 +31,15 @@ const LogoutButton = styled.button`
 
 export default function Header() {
     const cartCtx = useContext(CartContext);
+    const { data: session } = useSession()
 
 
-    return <HeaderContainer><Link href="/" className={styles['home-icon']}><FaHome color="white" size="30"/><div>BURGER</div></Link>  
-        <div style={{ display: "flex"}}>
+    return <HeaderContainer>
+        {session && <Link href="/" className={styles['home-icon']}><FaHome color="white" size="30"/><div>BURGER</div></Link>}
+            {session && <div style={{ display: "flex"}}>
             <CartIcon itemCount={cartCtx.itemCount}></CartIcon>
             <LogoutButton className={styles['logout-btn']} onClick={() => signOut({ callbackUrl: '/auth' })}>Log Out</LogoutButton>
             <ThemeToggle></ThemeToggle>
-        </div>
+        </div>}
     </HeaderContainer>
 }

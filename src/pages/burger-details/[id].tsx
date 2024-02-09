@@ -2,7 +2,7 @@ import { BurgerProps } from "@/components/burger/burger";
 import Image from 'next/image';
 import styles from './burger.details.module.css';
 import Link from "next/link";
-import ButtonLink from "@/components/button-link/buttonLink";
+import AddToCartButton from "@/components/button-link/buttonLink";
 import { useContext } from "react";
 import CartContext from "@/store/cart-context";
 import { useRouter } from 'next/router';
@@ -15,12 +15,9 @@ import getBurgersData, {getBurgerDetails} from '@/lib/databaseHelper';
 
 export type BurgerDetailsProps = {
     selectedBurger: BurgerProps
-}
-
-
+};
 
 export default function BurgerDetails({ selectedBurger }: BurgerDetailsProps) {
-
     const {image, name, price, description, calorie} = selectedBurger;
     const cartCtx = useContext(CartContext);
     const router = useRouter();
@@ -61,7 +58,7 @@ export default function BurgerDetails({ selectedBurger }: BurgerDetailsProps) {
             <div className={styles['detail-row']}>{currencyConvertor(price)}</div>
             <div className={styles['detail-row']}>{description}</div>
             <div>Nutrition: {calorie} calories</div>
-            <ButtonLink onClickHandler={addToCart}>Add to Cart</ButtonLink>
+            <AddToCartButton onClickHandler={addToCart}>Add to Cart</AddToCartButton>
         </div>
     </div>
 }

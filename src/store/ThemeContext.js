@@ -1,6 +1,5 @@
 // contexts/ThemeContext.js
 import { createContext, useContext, useState } from 'react';
-import themes  from '../styles/theme';
 
 const ThemeContext = createContext();
 
